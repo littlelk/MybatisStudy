@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miler.mybatis.mapper.UserMapper">
+    <insert id="insertUser">
+        insert into t_user values(null, '刘轲', '123456', 26, '男', '1324598012@qq.com')
+    </insert>
+<!--     void updateUser(); -->
+    <update id="updateUser">
+        update t_user set username='王冉' where id=3
+    </update>
+
+    <delete id="deleteUser">
+        delete from t_user where id=4
+    </delete>
+    <!--    User getUserById();-->
+    <!--    查询功能必须设置resultType或者resultMap
+        resultType: 设置默认的映射关系
+        resultMap: 设置自定义的映射关系
+    -->
+    <select id="getUserById" resultType="User">
+        select * from t_user where id=3
+    </select>
+<!--    List<User> getAllUser();-->
+    <select id="getAllUser" resultType="com.miler.mybatis.pojo.User">
+        select * from t_user
+    </select>
+</mapper>
